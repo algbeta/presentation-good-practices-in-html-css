@@ -19,31 +19,39 @@
 		<!--
 			To apply styles to the certain slides
 			set slide ID to get needed elements
-			-->
+		-->
 		<style>
-		    #Cover{
-		    	background-color: #fff;
-		    }
+			#Cover{
+				background-color: #fff;
+			}
 			#Cover h2 {
 				margin:30px 0 0;
 				color:#000;
 				text-align:center;
 				font-size:70px;
-				}
+			}
 			#Cover p {
 				margin:10px 0 0;
 				text-align:center;
 				font-style:italic;
 				font-size:20px;
-				}
-				#Cover p a {
-					color:#FFF;
-					}
+			}
+			#Cover p a {
+				color:#FFF;
+			}
 			#Cover img{
 				position: absolute;
 				bottom:0;
 				left:200px;
 				top:300px;
+			}
+			h3{
+				color: #666;
+				font: 500 35px/1 'PT Sans Narrow',sans-serif;
+				margin-bottom: 20px;
+			}
+			.slide pre{
+				margin-left:50px;
 			}
 		</style>
 	</div></section>
@@ -52,78 +60,188 @@
 		<ol>
 			<li>Большое кол-во браузеров(даже если выкидывать ненавистные IE)</li>
 			<li class="next">Тяжелая расширяемость проекта</li>
-            <li class="next">Количество CSS ВСЕГДА увеличивается и его сложно поддерживать</li>
-            <li class="next">Обычный CSS тяжело понять без контекста</li>
-            <li class="next">CSS поощряет переопределение свойств и каскад</li>
-            <li class="next">Свойства одного элемента могут быть описаны в удаленных друг от друга местах</li>
+			<li class="next">Количество CSS ВСЕГДА увеличивается и его сложно поддерживать</li>
+			<li class="next">Обычный CSS тяжело понять без контекста</li>
+			<li class="next">CSS поощряет переопределение свойств и каскад</li>
+			<li class="next">Свойства одного элемента могут быть описаны в удаленных друг от друга местах</li>
 		</ol>
 	</div>
-	</section>
-	<section class="slide"><div>
-		<h2>Как должен выглядеть идеальный код?</h2>
-		<ol>
-			<li>Должен работать</li>
-			<li>Должен быть лаконичным => в нем легко разобраться</li>
-			<li>Быть реиспользуемым</li>
-			<li>Легко расширяться, сохраняя предыдущие свойство</li>
-			<li>Автоматизированным, насколько это возможно</li>
-			<li>Содержимое, стилизация, функционал разделены, насколько это возможно</li>
-		</ol>
+</section>
+<section class="slide"><div>
+	<h2>Как должен выглядеть идеальный код?</h2>
+	<ol>
+		<li>Должен работать</li>
+		<li>Должен быть лаконичным => в нем легко разобраться</li>
+		<li>Быть реиспользуемым</li>
+		<li>Легко расширяться, сохраняя предыдущие свойства</li>
+		<li>Автоматизированным, насколько это возможно</li>
+		<li>Содержимое, стилизация, функционал разделены, насколько это возможно</li>
+	</ol>
+</div></section>
+<section class="slide" id="Slide4">
+	<div>
+		<h2>Методологии верстки</h2>
+		<h3>SMACSS</h3>
+		<p>
+			Scalable and Modular Architecture for CSS. Джонатан Снук. 2011.
+			<a herf="https://smacss.com/">https://smacss.com/</a>
+		</p>
+		<p>
+			Предлагает разделять все CSS-классы на несколько типов: основа (базис), структура (каркас), модуль (группа элементов), состояние,тема.
+		</p>
+	</div></section>
+	<section  class="slide">
+		<div>
+			<h2>Основа(Base)</h2>
+			<h3>Это reset стилей и  стилизация тэгов</h3>
+			<pre>
+				<code>html, body, form {</code>
+				<code>  padding: 0;</code>
+				<code>  margin: 0;</code>
+			    <code>}</code>
+			    <code>a {</code>
+			    <code>   color: #bbb;</code>
+		        <code>}</code>
+	</pre>
+</div>
+</section>
+<section  class="slide">
+		<div>
+			<h2>Структура(Layout)</h2>
+			<h3>Классы для указания размеров, обтекания, позиционирования и т.д.
+                Имеют приставку l-*
+			</h3>
+			<pre>
+				<code>.page-header, .page-footer {</code>
+				<code>  width: 940px;</code>
+				<code>  margin: 0 auto;</code>
+			    <code>}</code>
+			    <code>.l-left-column {</code>
+			    <code>   float: right;</code>
+		        <code>}</code>
+
+	</pre>
+</div>
+</section>
+<section  class="slide">
+		<div>
+			<h2>Модуль(Module)</h2>
+			<h3>Более дискретная, независимая от контента часть страницы(виджет, диалог)
+			</h3>
+			<pre>
+				<code>.module h2{</code>
+				<code>  padding: 40px;</code>
+				<code>}</code>
+	        </pre>
+	        <a href="https://smacss.com/book/type-module">https://smacss.com/book/type-module</a>
+</div>
+</section>
+<section  class="slide">
+		<div>
+			<h2>Состояние(State)</h2>
+			<h3>Классы для описания любого состояния, отличного от состояния по умолчанию. Приставка is-*
+			</h3>
+			<pre>
+				<code>.accodion-header{</code>
+				<code>  background-color: #ddd;</code>
+				<code>}</code>
+				<code>.is-accodion-header-active{</code>
+				<code>  background-color: #fff;</code>
+				<code>}</code>
+	        </pre>
+</div>
+</section>
+<section  class="slide">
+		<div>
+			<h2>Тема(Theme)</h2>
+			<h3>Тема — набор правил, определяющих внешнее оформление любых элементов (цвета текста и фона, оформительские
+изображения).
+			</h3>
+</div>
+</section>
+<section class="slide">
+	<div>
+		<h2>Методологии верстки</h2>
+		<h3>BEM</h3>
+		<p>
+			Block. Element. Modifier.<br/>
+			Оригинал и модификация Галлахера.
+		</p>
 	</div></section>
 	<section class="slide"><div>
-		<h2>Shower Key Features</h2>
+		<h2>Достоинства BEM</h2>
 		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>All modern browsers are supported</li>
-			<li>Slide themes are separated from engine</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Plain Text on Your Slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</div></section>
-	<section class="slide"><div>
-		<h2>All Kind of Lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
+			<li>Простота в освоении
+                <OL>
+                	<li>Нет селектора вне класса</li>
+                	<li>Избегаем каскада</li>
+                </OL>
 			</li>
-			<li>Look, seven rows exactly!</li>
+			<li class="next">Самодокументироваемость кода</li>
+			<li class="next">Независимость блоков
+                <ol>
+                	<li>нет пересечения имен => однозначная работа кода</li>
+                	<li>легкая поддержка и расширение, использование в разных контекстах</li>
+                </ol>
+			</li>
+			<li class="next">Отпадает проблема с наследованием и сложными селекторами, css менее привязан к html</li>
 		</ol>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Serious Citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Code Samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code>&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <mark class="comment">&lt;!--Comment--&gt;</mark></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
-		</pre>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Even Tables</h2>
-		<table>
+	</div>
+</section>	
+<section class="slide"><div>
+	<h2>Shower Key Features</h2>
+	<ol>
+		<li>Built on HTML, CSS and vanilla JavaScript</li>
+		<li>All modern browsers are supported</li>
+		<li>Slide themes are separated from engine</li>
+		<li>Fully keyboard accessible</li>
+		<li>Printable to PDF</li>
+	</ol>
+	<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+</div></section>
+<section class="slide"><div>
+	<h2>Plain Text on Your Slides</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+</div></section>
+<section class="slide"><div>
+	<h2>All Kind of Lists</h2>
+	<ol>
+		<li>Simple lists are marked with bullets</li>
+		<li>Ordered lists begin with a number</li>
+		<li>You can even nest lists one inside another
+			<ul>
+				<li>Or mix their types</li>
+				<li>But do not go too far</li>
+				<li>Otherwise audience will be bored</li>
+			</ul>
+		</li>
+		<li>Look, seven rows exactly!</li>
+	</ol>
+</div></section>
+<section class="slide"><div>
+	<h2>Serious Citations</h2>
+	<figure>
+		<blockquote>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+		</blockquote>
+		<figcaption>Marcus Tullius Cicero</figcaption>
+	</figure>
+</div></section>
+<section class="slide"><div>
+	<h2>Code Samples</h2>
+	<pre>
+		<code>&lt;!DOCTYPE html&gt;</code>
+		<code>&lt;html lang="en"&gt;</code>
+		<code><mark>&lt;head&gt;</mark> <mark class="comment">&lt;!--Comment--&gt;</mark></code>
+		<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
+		<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
+		<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+		<code><mark>&lt;/head&gt;</mark></code>
+	</pre>
+</div></section>
+<section class="slide"><div>
+	<h2>Even Tables</h2>
+	<table>
 		<tr>
 			<th scope="col">Locavore</th>
 			<th>Umami</th>
@@ -154,51 +272,51 @@
 			<td>Swag</td>
 			<td>Blog</td>
 		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</div></section>
-	<section class="slide cover" id="Picture"><div>
-		<h2>Pictures</h2>
-		<img src="pictures/picture.jpg" alt="">
-		<style>
-			#Picture h2 {
-				color:#FFF;
-				}
-		</style>
-	</div></section>
-	<section class="slide shout"><div>
-		<h2>You can even shout this way</h2>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Inner Navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</div></section>
-	<section class="slide shout" id="SeeMore"><div>
-		<h2><img src="pictures/logo.svg" alt=""> <a href="https://github.com/shower/shower">See more on GitHub</a></h2>
-		<style>
-			#Picture h2 {
-				color:#FFF;
-				}
-			#SeeMore h2 {
-				font-size:100px
-				}
-			#SeeMore img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
-	</div></section>
-	<p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
+	</table>
+	<p>It’s good to have information organized.</p>
+</div></section>
+<section class="slide cover" id="Picture"><div>
+	<h2>Pictures</h2>
+	<img src="pictures/picture.jpg" alt="">
+	<style>
+		#Picture h2 {
+			color:#FFF;
+		}
+	</style>
+</div></section>
+<section class="slide shout"><div>
+	<h2>You can even shout this way</h2>
+</div></section>
+<section class="slide"><div>
+	<h2>Inner Navigation</h2>
+	<ol>
+		<li>Lets you reveal list items one by one</li>
+		<li class="next">To keep some key points</li>
+		<li class="next">In secret from audience</li>
+		<li class="next">But it will work only once</li>
+		<li class="next">Nobody wants to see the same joke twice</li>
+	</ol>
+</div></section>
+<section class="slide shout" id="SeeMore"><div>
+	<h2><img src="pictures/logo.svg" alt=""> <a href="https://github.com/shower/shower">See more on GitHub</a></h2>
+	<style>
+		#Picture h2 {
+			color:#FFF;
+		}
+		#SeeMore h2 {
+			font-size:100px
+		}
+		#SeeMore img {
+			width:0.72em;
+			height:0.72em;
+		}
+	</style>
+</div></section>
+<p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
 	<!--
 		To hide progress bar from entire presentation
 		just remove “progress” element.
-		-->
+	-->
 	<div class="progress"><div></div></div>
 	<script src="shower/shower.min.js"></script>
 	<!-- Copyright © 2014 Yours Truly, Famous Inc. -->
