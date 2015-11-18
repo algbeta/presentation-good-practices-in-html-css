@@ -1,10 +1,6 @@
 Обзорная презентация по хорошим практикам в верстке.
 Сделано на Shower.
 
-# Shower HTML presentation engine
-
-Follow [@shower_me](https://twitter.com/shower_me) for support and updates
-
 To see Shower in action:
 
 - Open [shwr.me](http://shwr.me/)
