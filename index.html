@@ -53,6 +53,12 @@
 			.slide pre{
 				margin-left:50px;
 			}
+			dt{
+				font-weight: bold;
+			}
+			#Processor{
+				background-color: #E7EAF1;
+			}
 		</style>
 	</div></section>
 	<section class="slide"><div>
@@ -187,131 +193,101 @@
 			<li class="next">Отпадает проблема с наследованием и сложными селекторами, css менее привязан к html</li>
 		</ol>
 	</div>
-</section>	
+</section>
 <section class="slide"><div>
-	<h2>Shower Key Features</h2>
-	<ol>
-		<li>Built on HTML, CSS and vanilla JavaScript</li>
-		<li>All modern browsers are supported</li>
-		<li>Slide themes are separated from engine</li>
-		<li>Fully keyboard accessible</li>
-		<li>Printable to PDF</li>
-	</ol>
-	<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+	<h2>Принципы БЭМ</h2>
+	<dl>
+		<dt>Блок</dt>
+		<dd>независимый элемент страницы с собственным смыслом</dd>
+		<dt>Элемент</dt>
+		<dd>часть блока, имеющая смысл только внутри блока</dd>
+		<dt>Moдификатор</dt>
+		<dd>модификация внешнего вида или поведения блока</dd>
+	</dl>
 </div></section>
 <section class="slide"><div>
-	<h2>Plain Text on Your Slides</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+	<h2>Принципы БЭМ</h2>
+	<ul>
+		<li>Никогда не используем id</li>
+		<li>Минимум тэгов не покрытых классами</li>
+		<li>Избегаем классов вне блоков(.red, .float-left .etc)</li>
+		<li>Класс-модификатор не используется без тех классов, которые он модифицирует</li>
+		<li>У блока/элемента может быть несколько классов, которые его модифицируют</li>
+		<li>Не модифицировать влож. блок через модификатор родителя</li>
+	</ul>
 </div></section>
 <section class="slide"><div>
-	<h2>All Kind of Lists</h2>
-	<ol>
-		<li>Simple lists are marked with bullets</li>
-		<li>Ordered lists begin with a number</li>
-		<li>You can even nest lists one inside another
-			<ul>
-				<li>Or mix their types</li>
-				<li>But do not go too far</li>
-				<li>Otherwise audience will be bored</li>
-			</ul>
+	<h2>Moдульность CSS и JS</h2>
+	<p>Разделение цельных блоков на самостоятельные мелкие</p>
+</div></section>
+<section class="slide"><div>
+	<h2>Подход Mobile First/Desktop First</h2>
+	<p>Выбираем только один подход и следуем ему на протяжение разработки всего сайта</p>
+</div></section>
+<section class="slide" id="Processor"><div>
+	<img src="pictures/less-vs-sass-1-638.jpg"/>
+</div></section>
+<section class="slide"><div>
+	<h2>Зачем нам нужны препроцессоры?</h2>
+	<ul>
+		<li>Писать как можно меньше повторений. Использование переменных</li>
+		<li>Вложения дочерних правил в родительские, как с @media</li>
+		<li>Переменные и математические операции с ними. В том числе с цветами.</li>
+		<li>Примешивание правил одного селектора к другому.</li>
+		<li>Возможность как-то менять CSS-правила, исходя из каких-либо условий (функции).</li>
+	</ul>
+</div></section>
+<section class="slide"><div>
+	<h2>Адаптивная графика</h2>
+	<p>
+	   Если есть возможность, выпрашивайте у дизайнера svg.
+	   Для растровых изображений не забывайте о picture(или <a href="https://github.com/scottjehl/picturefill">picturefill</a>) для ретины.
+	   Разделяйте контентные картинки и картинки используемые для стилизации.
+	</p>
+</div></section>
+<section class="slide"><div>
+	<h2>Автоматизация верстки</h2>
+	<ul>
+		<li>Nodejs</li>
+        <li><a href="http://bower.io/docs/api/">Bower</a></li>
+        <li><a href="http://gruntjs.com/getting-started">Grunt</a>/Gulp</li>
+	</ul>
+</div></section>
+<section class="slide">
+   <div>
+	<h2>Самые полезные плагины Grunt'a</h2>
+	<ul>
+		<li>grunt-contrib-copy, grunt-contrib-clean
 		</li>
-		<li>Look, seven rows exactly!</li>
-	</ol>
-</div></section>
+		<li>grunt-contrib-sass, grunt-contrib-less</li>
+		<li>grunt-contrib-concat, grunt-contrib-uglify, grunt-contib-cssmin, grunt-contrib-htmlmin</li>
+		<li>grunt-autoprefixer, grunt-combine-media-queries, grunt-csscomb</li>
+		<li>grunt-spritesmith, grunt-contrib-imagemin</li>
+	</ul>
+	</div>
+</section>
 <section class="slide"><div>
-	<h2>Serious Citations</h2>
-	<figure>
-		<blockquote>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-		</blockquote>
-		<figcaption>Marcus Tullius Cicero</figcaption>
-	</figure>
+	<h2>Фреймворки</h2>
+	<ul>
+		<li><a href="https://github.com/twbs/bootstrap-sass">Bootstrap</a></li>
+	</ul>
 </div></section>
-<section class="slide"><div>
-	<h2>Code Samples</h2>
-	<pre>
-		<code>&lt;!DOCTYPE html&gt;</code>
-		<code>&lt;html lang="en"&gt;</code>
-		<code><mark>&lt;head&gt;</mark> <mark class="comment">&lt;!--Comment--&gt;</mark></code>
-		<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-		<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-		<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-		<code><mark>&lt;/head&gt;</mark></code>
-	</pre>
-</div></section>
-<section class="slide"><div>
-	<h2>Even Tables</h2>
-	<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-	</table>
-	<p>It’s good to have information organized.</p>
-</div></section>
-<section class="slide cover" id="Picture"><div>
-	<h2>Pictures</h2>
-	<img src="pictures/picture.jpg" alt="">
-	<style>
-		#Picture h2 {
-			color:#FFF;
-		}
-	</style>
-</div></section>
-<section class="slide shout"><div>
-	<h2>You can even shout this way</h2>
-</div></section>
-<section class="slide"><div>
-	<h2>Inner Navigation</h2>
-	<ol>
-		<li>Lets you reveal list items one by one</li>
-		<li class="next">To keep some key points</li>
-		<li class="next">In secret from audience</li>
-		<li class="next">But it will work only once</li>
-		<li class="next">Nobody wants to see the same joke twice</li>
-	</ol>
-</div></section>
-<section class="slide shout" id="SeeMore"><div>
-	<h2><img src="pictures/logo.svg" alt=""> <a href="https://github.com/shower/shower">See more on GitHub</a></h2>
-	<style>
-		#Picture h2 {
-			color:#FFF;
-		}
-		#SeeMore h2 {
-			font-size:100px
-		}
-		#SeeMore img {
-			width:0.72em;
-			height:0.72em;
-		}
-	</style>
-</div></section>
+<section class="slide">
+   <div>
+	<h2>Просто вкусняшки</h2>
+    <ul>
+    	<li><a href="http://emmet.io/">Emmet</a></li>
+    	<li><a href="https://csshat.com/">CssHat</a></li>
+    	<li>JsLint/JsHint</li>
+    	<li><a href="https://travis-ci.org/">Travis</a></li>
+    	<p>Практически для любой IDE есть плагины для trailing spaces, форматирования</p>
+    </ul></div>
+</section>
+<section class="slide">
+   <div>
+	<h2>Спасибо!</h2>
+	<p> Презентация сделана на <a href="https://github.com/shower/shower">Shower</a></p>
+</section>
 <p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
 	<!--
 		To hide progress bar from entire presentation
